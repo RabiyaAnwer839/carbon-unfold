@@ -125,21 +125,21 @@ function Studio() {
         {/* key softbox */}
         <Lightformer intensity={9} position={[3, 4, 3]} scale={[8, 10, 1]} form="rect" />
         {/* rim strips */}
-        <Lightformer intensity={22} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
-        <Lightformer intensity={20} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
-        <Lightformer intensity={4} position={[0, -4, 0]} scale={[12, 12, 1]} rotation={[Math.PI / 2, 0, 0]} form="rect" />
+        <Lightformer intensity={14} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
+        <Lightformer intensity={13} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
+        <Lightformer intensity={1.6} position={[0, -4, 0]} scale={[12, 12, 1]} rotation={[Math.PI / 2, 0, 0]} form="rect" />
       </Environment>
       <ambientLight intensity={0.28} />
       <spotLight
         position={[4, 7, 4]}
         angle={0.45}
         penumbra={1}
-        intensity={420}
+        intensity={210}
         color="#eaf2ff"
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <spotLight position={[-6, 2, -4]} angle={0.7} penumbra={1} intensity={260} color="#7fb6ff" />
+      <spotLight position={[-6, 2, -4]} angle={0.7} penumbra={1} intensity={150} color="#7fb6ff" />
       <pointLight position={[0, -2, 3]} intensity={10} color="#ffd9b0" />
       <ContactShadows
         position={[0, -1.15, 0]}
@@ -167,7 +167,7 @@ export default function BikeScene({ progress }: { progress: ProgressRef }) {
       dpr={[1, 1.8]}
       gl={{ antialias: true, alpha: true }}
       onCreated={({ gl }) => {
-        gl.toneMappingExposure = 1.25;
+        gl.toneMappingExposure = 0.92;
       }}
       camera={{ position: [0.35, 0.6, 14.5], fov: 34 }}
     >

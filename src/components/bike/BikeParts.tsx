@@ -13,7 +13,7 @@ export function useMaterials() {
       envMapIntensity: 0.55,
     });
     const titanium = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#8f959b"),
+      color: new THREE.Color("#71777d"),
       metalness: 1,
       roughness: 0.46,
       envMapIntensity: 0.85,
