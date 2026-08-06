@@ -121,26 +121,25 @@ function Studio() {
   return (
     <>
       <Environment resolution={512}>
-        <color attach="background" args={["#050506"]} />
         {/* key softbox */}
-        <Lightformer intensity={3.2} position={[3, 4, 3]} scale={[6, 8, 1]} form="rect" />
+        <Lightformer intensity={12} position={[3, 4, 3]} scale={[8, 10, 1]} form="rect" />
         {/* rim strips */}
-        <Lightformer intensity={6} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
-        <Lightformer intensity={5} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
-        <Lightformer intensity={1.6} position={[0, -4, 0]} scale={[12, 12, 1]} rotation={[Math.PI / 2, 0, 0]} form="rect" />
+        <Lightformer intensity={22} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
+        <Lightformer intensity={20} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
+        <Lightformer intensity={4} position={[0, -4, 0]} scale={[12, 12, 1]} rotation={[Math.PI / 2, 0, 0]} form="rect" />
       </Environment>
-      <ambientLight intensity={0.12} />
+      <ambientLight intensity={0.55} />
       <spotLight
         position={[4, 7, 4]}
         angle={0.45}
         penumbra={1}
-        intensity={90}
+        intensity={420}
         color="#eaf2ff"
         castShadow
         shadow-mapSize={[1024, 1024]}
       />
-      <spotLight position={[-6, 2, -4]} angle={0.7} penumbra={1} intensity={45} color="#7fb6ff" />
-      <pointLight position={[0, -2, 3]} intensity={8} color="#ffd9b0" />
+      <spotLight position={[-6, 2, -4]} angle={0.7} penumbra={1} intensity={260} color="#7fb6ff" />
+      <pointLight position={[0, -2, 3]} intensity={26} color="#ffd9b0" />
       <ContactShadows
         position={[0, -1.15, 0]}
         opacity={0.75}
@@ -155,7 +154,7 @@ function Studio() {
         <planeGeometry args={[24, 12]} />
         <meshBasicMaterial color="#0b1016" transparent opacity={0.45} />
       </mesh>
-      <fog attach="fog" args={["#050506", 8, 16]} />
+      <fog attach="fog" args={["#050506", 11, 20]} />
     </>
   );
 }
@@ -166,6 +165,9 @@ export default function BikeScene({ progress }: { progress: ProgressRef }) {
       shadows
       dpr={[1, 1.8]}
       gl={{ antialias: true, alpha: true }}
+      onCreated={({ gl }) => {
+        gl.toneMappingExposure = 1.25;
+      }}
       camera={{ position: [0.35, 0.6, 7.4], fov: 34 }}
     >
       <Studio />

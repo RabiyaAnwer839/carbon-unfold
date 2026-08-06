@@ -5,9 +5,9 @@ import { RoundedBox } from "@react-three/drei";
 export function useMaterials() {
   return useMemo(() => {
     const carbon = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color("#0a0b0d"),
-      metalness: 0.45,
-      roughness: 0.42,
+      color: new THREE.Color("#17191d"),
+      metalness: 0.5,
+      roughness: 0.38,
       clearcoat: 1,
       clearcoatRoughness: 0.28,
       envMapIntensity: 1.1,
@@ -25,7 +25,7 @@ export function useMaterials() {
       envMapIntensity: 1,
     });
     const rubber = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#0c0c0e"),
+      color: new THREE.Color("#141416"),
       metalness: 0.05,
       roughness: 0.85,
     });
