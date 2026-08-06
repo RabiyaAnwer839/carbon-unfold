@@ -70,10 +70,11 @@ function Bike({ progress }: { progress: ProgressRef }) {
       const k = 1 - e; // 1 = fully exploded
 
       const float = Math.sin(t * 0.9 + part.order * 9) * 0.035 * k;
+      const spread = k * 0.6;
       el.position.set(
-        part.to[0] + part.offset[0] * k,
-        part.to[1] + part.offset[1] * k + float,
-        part.to[2] + part.offset[2] * k,
+        part.to[0] + part.offset[0] * spread,
+        part.to[1] + part.offset[1] * spread + float,
+        part.to[2] + part.offset[2] * spread,
       );
       el.rotation.set(part.spin[0] * k, part.spin[1] * k, part.spin[2] * k);
     }
@@ -96,7 +97,7 @@ function Bike({ progress }: { progress: ProgressRef }) {
     const py = (state.pointer.y || 0) * 0.12;
     const targetX = 0.35 + Math.sin(t * 0.18) * 0.18 + px;
     const targetY = 0.55 - p * 0.22 + Math.sin(t * 0.24) * 0.06 + py;
-    const targetZ = 9.6 - p * 1.1;
+    const targetZ = 10.8 - p * 2.2;
     cam.position.lerp(new THREE.Vector3(targetX, targetY, targetZ), Math.min(1, delta * 2.2));
     cam.lookAt(0, 0.02, 0);
   });
@@ -168,7 +169,7 @@ export default function BikeScene({ progress }: { progress: ProgressRef }) {
       onCreated={({ gl }) => {
         gl.toneMappingExposure = 1.25;
       }}
-      camera={{ position: [0.35, 0.6, 9.6], fov: 34 }}
+      camera={{ position: [0.35, 0.6, 10.8], fov: 34 }}
     >
       <Studio />
       <Bike progress={progress} />

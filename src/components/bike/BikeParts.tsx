@@ -83,8 +83,8 @@ export function Disc({ mats }: { mats: M }) {
       <mesh material={mats.titanium}>
         <cylinderGeometry args={[0.3, 0.3, 0.012, 48]} />
       </mesh>
-      <mesh material={mats.darkMetal} position={[0.1, 0.05, 0]}>
-        <boxGeometry args={[0.13, 0.1, 0.16]} />
+      <mesh material={mats.darkMetal} position={[0.26, 0.05, 0.06]}>
+        <boxGeometry args={[0.1, 0.09, 0.14]} />
       </mesh>
     </group>
   );
