@@ -96,13 +96,13 @@ function Bike({ progress }: { progress: ProgressRef }) {
     const py = (state.pointer.y || 0) * 0.12;
     const targetX = 0.35 + Math.sin(t * 0.18) * 0.18 + px;
     const targetY = 0.55 - p * 0.22 + Math.sin(t * 0.24) * 0.06 + py;
-    const targetZ = 7.4 - p * 1.5;
+    const targetZ = 9.6 - p * 1.1;
     cam.position.lerp(new THREE.Vector3(targetX, targetY, targetZ), Math.min(1, delta * 2.2));
-    cam.lookAt(0, -0.05, 0);
+    cam.lookAt(0, 0.02, 0);
   });
 
   return (
-    <group ref={group} scale={1.05}>
+    <group ref={group} scale={0.95}>
       {PARTS.map((part) => (
         <group
           key={part.id}
@@ -154,7 +154,7 @@ function Studio() {
         <planeGeometry args={[24, 12]} />
         <meshBasicMaterial color="#0b1016" transparent opacity={0.45} />
       </mesh>
-      <fog attach="fog" args={["#050506", 11, 20]} />
+      <fog attach="fog" args={["#050506", 13, 24]} />
     </>
   );
 }
@@ -168,7 +168,7 @@ export default function BikeScene({ progress }: { progress: ProgressRef }) {
       onCreated={({ gl }) => {
         gl.toneMappingExposure = 1.25;
       }}
-      camera={{ position: [0.35, 0.6, 7.4], fov: 34 }}
+      camera={{ position: [0.35, 0.6, 9.6], fov: 34 }}
     >
       <Studio />
       <Bike progress={progress} />
