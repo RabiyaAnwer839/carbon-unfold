@@ -157,8 +157,20 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scrollbar-width: none;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
   }
 }
+
