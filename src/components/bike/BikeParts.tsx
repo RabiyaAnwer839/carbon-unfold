@@ -5,29 +5,30 @@ import { RoundedBox } from "@react-three/drei";
 export function useMaterials() {
   return useMemo(() => {
     const carbon = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color("#17191d"),
-      metalness: 0.5,
-      roughness: 0.38,
-      clearcoat: 1,
-      clearcoatRoughness: 0.28,
-      envMapIntensity: 1.1,
+      color: new THREE.Color("#0e1012"),
+      metalness: 0.25,
+      roughness: 0.62,
+      clearcoat: 0.55,
+      clearcoatRoughness: 0.45,
+      envMapIntensity: 0.55,
     });
     const titanium = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#b9bec4"),
+      color: new THREE.Color("#8f959b"),
       metalness: 1,
-      roughness: 0.34,
-      envMapIntensity: 1.3,
+      roughness: 0.46,
+      envMapIntensity: 0.85,
     });
     const darkMetal = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#2a2d31"),
-      metalness: 0.95,
-      roughness: 0.45,
-      envMapIntensity: 1,
+      color: new THREE.Color("#1c1f22"),
+      metalness: 0.9,
+      roughness: 0.55,
+      envMapIntensity: 0.6,
     });
     const rubber = new THREE.MeshStandardMaterial({
-      color: new THREE.Color("#141416"),
-      metalness: 0.05,
-      roughness: 0.85,
+      color: new THREE.Color("#0b0b0d"),
+      metalness: 0.02,
+      roughness: 0.96,
+      envMapIntensity: 0.25,
     });
     const glass = new THREE.MeshPhysicalMaterial({
       color: new THREE.Color("#0e1114"),

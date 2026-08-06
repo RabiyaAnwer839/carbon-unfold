@@ -123,13 +123,13 @@ function Studio() {
     <>
       <Environment resolution={512}>
         {/* key softbox */}
-        <Lightformer intensity={12} position={[3, 4, 3]} scale={[8, 10, 1]} form="rect" />
+        <Lightformer intensity={9} position={[3, 4, 3]} scale={[8, 10, 1]} form="rect" />
         {/* rim strips */}
         <Lightformer intensity={22} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
         <Lightformer intensity={20} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
         <Lightformer intensity={4} position={[0, -4, 0]} scale={[12, 12, 1]} rotation={[Math.PI / 2, 0, 0]} form="rect" />
       </Environment>
-      <ambientLight intensity={0.55} />
+      <ambientLight intensity={0.28} />
       <spotLight
         position={[4, 7, 4]}
         angle={0.45}
@@ -140,7 +140,7 @@ function Studio() {
         shadow-mapSize={[1024, 1024]}
       />
       <spotLight position={[-6, 2, -4]} angle={0.7} penumbra={1} intensity={260} color="#7fb6ff" />
-      <pointLight position={[0, -2, 3]} intensity={26} color="#ffd9b0" />
+      <pointLight position={[0, -2, 3]} intensity={10} color="#ffd9b0" />
       <ContactShadows
         position={[0, -1.15, 0]}
         opacity={0.75}
