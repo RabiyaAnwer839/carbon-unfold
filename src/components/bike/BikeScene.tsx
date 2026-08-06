@@ -123,10 +123,10 @@ function Studio() {
     <>
       <Environment resolution={512}>
         {/* key softbox */}
-        <Lightformer intensity={9} position={[3, 4, 3]} scale={[8, 10, 1]} form="rect" />
+        <Lightformer intensity={4.5} position={[3, 4, 3]} scale={[8, 10, 1]} form="rect" />
         {/* rim strips */}
-        <Lightformer intensity={14} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
-        <Lightformer intensity={13} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
+        <Lightformer intensity={7} position={[-5, 1.5, -2]} scale={[0.4, 10, 1]} form="rect" />
+        <Lightformer intensity={6} position={[5, 1.2, -3]} scale={[0.4, 10, 1]} form="rect" />
         <Lightformer intensity={1.6} position={[0, -4, 0]} scale={[12, 12, 1]} rotation={[Math.PI / 2, 0, 0]} form="rect" />
       </Environment>
       <ambientLight intensity={0.28} />

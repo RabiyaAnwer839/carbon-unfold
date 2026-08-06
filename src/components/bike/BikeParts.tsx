@@ -5,18 +5,18 @@ import { RoundedBox } from "@react-three/drei";
 export function useMaterials() {
   return useMemo(() => {
     const carbon = new THREE.MeshPhysicalMaterial({
-      color: new THREE.Color("#0e1012"),
-      metalness: 0.25,
-      roughness: 0.62,
-      clearcoat: 0.55,
-      clearcoatRoughness: 0.45,
-      envMapIntensity: 0.55,
+      color: new THREE.Color("#0d0f11"),
+      metalness: 0.08,
+      roughness: 0.72,
+      clearcoat: 0.3,
+      clearcoatRoughness: 0.6,
+      envMapIntensity: 0.3,
     });
     const titanium = new THREE.MeshStandardMaterial({
       color: new THREE.Color("#71777d"),
       metalness: 1,
-      roughness: 0.46,
-      envMapIntensity: 0.85,
+      roughness: 0.5,
+      envMapIntensity: 0.7,
     });
     const darkMetal = new THREE.MeshStandardMaterial({
       color: new THREE.Color("#1c1f22"),
