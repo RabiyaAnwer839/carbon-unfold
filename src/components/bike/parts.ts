@@ -46,7 +46,7 @@ export const PARTS: PartSpec[] = [
   { id: "seat", to: [-0.62, 0.42, 0], offset: [-0.5, 1.5, 0.2], spin: [0.2, 0.3, 0], order: 0.6 },
   { id: "tail", to: [-1.15, 0.5, 0], offset: [-1.6, 1.7, 0], spin: [0.4, 0.2, 0.3], order: 0.66 },
   { id: "nose", to: [1.22, 0.3, 0], offset: [2.1, 1.3, 0], spin: [0.3, 0.4, 0.2], order: 0.74 },
-  { id: "screen", to: [0.98, 0.62, 0], offset: [1.6, 1.9, 0], spin: [0.5, 0.2, 0], order: 0.8 },
+  { id: "screen", to: [1.02, 0.5, 0], offset: [1.6, 1.9, 0], spin: [0.5, 0.2, 0], order: 0.8 },
   { id: "winglet", to: [1.0, 0.12, 0], offset: [1.9, -0.9, 1.2], spin: [0.3, 0.6, 0.4], order: 0.86 },
   { id: "bars", to: [0.86, 0.72, 0], offset: [1.2, 2.0, 0], spin: [0.4, 0.5, 0.3], order: 0.92 },
 ];

@@ -81,8 +81,11 @@ export function Wheel({ mats }: { mats: M }) {
 export function Disc({ mats }: { mats: M }) {
   return (
     <group rotation={[Math.PI / 2, 0, 0]}>
+      <mesh material={mats.darkMetal}>
+        <cylinderGeometry args={[0.26, 0.26, 0.012, 48]} />
+      </mesh>
       <mesh material={mats.titanium}>
-        <cylinderGeometry args={[0.3, 0.3, 0.012, 48]} />
+        <torusGeometry args={[0.25, 0.012, 12, 48]} />
       </mesh>
       <mesh material={mats.darkMetal} position={[0.26, 0.05, 0.06]}>
         <boxGeometry args={[0.1, 0.09, 0.14]} />

@@ -97,7 +97,7 @@ function Bike({ progress }: { progress: ProgressRef }) {
     const py = (state.pointer.y || 0) * 0.12;
     const targetX = 0.35 + Math.sin(t * 0.18) * 0.18 + px;
     const targetY = 0.55 - p * 0.22 + Math.sin(t * 0.24) * 0.06 + py;
-    const targetZ = 14.5 - p * 3.4;
+    const targetZ = 14.5 - p * 4.4;
     cam.position.lerp(new THREE.Vector3(targetX, targetY, targetZ), Math.min(1, delta * 2.2));
     cam.lookAt(0, 0.02, 0);
   });
