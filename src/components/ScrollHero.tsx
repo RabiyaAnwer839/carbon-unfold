@@ -26,8 +26,6 @@ const STAGES = [
 export function ScrollHero() {
   const wrapper = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
-  const target = useRef(0);
-  const current = useRef(0);
   const [stage, setStage] = useState(0);
   const [scrolled, setScrolled] = useState(false);
 
@@ -36,16 +34,13 @@ export function ScrollHero() {
 
     const lenis = new Lenis({ duration: 1.25, smoothWheel: true });
     lenis.on("scroll", ScrollTrigger.update);
-    const raf = (time: number) => {
-      lenis.raf(time * 1000);
-      const v = video.current;
-      if (v && v.duration) {
-        current.current += (target.current - current.current) * 0.12;
-        v.currentTime = Math.min(v.duration - 0.05, current.current * v.duration);
-      }
-    };
+    const raf = (time: number) => lenis.raf(time * 1000);
     gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
+
+    // play the full video continuously, cinematic-site style
+    const v = video.current;
+    v?.play().catch(() => {});
 
     const st = ScrollTrigger.create({
       trigger: wrapper.current,
@@ -53,7 +48,6 @@ export function ScrollHero() {
       end: "bottom bottom",
       scrub: true,
       onUpdate: (self) => {
-        target.current = self.progress;
         setScrolled(self.progress > 0.02);
         setStage(self.progress < 0.34 ? 0 : self.progress < 0.76 ? 1 : 2);
       },
@@ -67,16 +61,19 @@ export function ScrollHero() {
   }, []);
 
   return (
-    <div ref={wrapper} className="relative h-[500vh] w-full">
+    <div ref={wrapper} className="relative h-[300vh] w-full">
       <div className="sticky top-0 h-screen w-full overflow-hidden bg-background">
         <video
           ref={video}
           src={videoAsset.url}
           muted
+          loop
+          autoPlay
           playsInline
           preload="auto"
           className="absolute inset-0 h-full w-full object-cover"
         />
+
 
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/60 to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/70 to-transparent" />
