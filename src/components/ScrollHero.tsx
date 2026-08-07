@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { CALLOUTS } from "./bike/parts";
-import videoAsset from "@/assets/superbike-assembly.mp4.asset.json";
+import videoAsset from "@/assets/motorcycle-assembly.mp4.asset.json";
 
 const STAGES = [
   {
