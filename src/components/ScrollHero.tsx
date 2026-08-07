@@ -78,9 +78,8 @@ export function ScrollHero() {
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="pointer-events-none absolute inset-0 bg-[image:var(--gradient-haze)]" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-background/40 to-background/20" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-background/80 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-background/70 to-transparent" />
 
         {/* top bar */}
         <header className="absolute inset-x-0 top-0 z-20 flex items-center justify-between px-6 py-6 md:px-14">
