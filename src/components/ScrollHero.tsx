@@ -36,16 +36,16 @@ export function ScrollHero() {
     lenis.on("scroll", ScrollTrigger.update);
 
     const v = video.current!;
-    v.pause();
 
     // scrub state: eased toward scroll target, then committed to a real frame
     const target = { t: 0 };
     const eased = { t: 0 };
     let seeking = false;
     let pending = 0;
+    let intro = true; // play once on load, then hand control to scroll
 
     const commit = () => {
-      if (seeking || !v.duration) return;
+      if (intro || seeking || !v.duration) return;
       const next = Math.min(v.duration - 0.033, Math.max(0, pending));
       if (Math.abs(next - v.currentTime) < 0.008) return;
       seeking = true;
@@ -59,6 +59,7 @@ export function ScrollHero() {
 
     const raf = (time: number) => {
       lenis.raf(time * 1000);
+      if (intro) return;
       // critically-damped-ish smoothing → mechanical, no rubber band
       eased.t += (target.t - eased.t) * 0.16;
       pending = eased.t;
@@ -81,11 +82,31 @@ export function ScrollHero() {
       },
     });
 
-    const onMeta = () => {
-      target.t = st.progress * v.duration;
+    const endIntro = () => {
+      if (!intro) return;
+      intro = false;
+      target.t = st.progress * (v.duration || 0);
       eased.t = target.t;
       pending = target.t;
       commit();
+    };
+
+    // intro: single, non-looping playthrough from the first frame
+    const onEnded = () => endIntro();
+    v.addEventListener("ended", onEnded);
+    // if the user starts scrolling, hand control over immediately
+    const onWheelOrTouch = () => {
+      if (intro && v.currentTime > 0.15) {
+        v.pause();
+        endIntro();
+      }
+    };
+    window.addEventListener("wheel", onWheelOrTouch, { passive: true });
+    window.addEventListener("touchmove", onWheelOrTouch, { passive: true });
+
+    const onMeta = () => {
+      v.currentTime = 0;
+      void v.play().catch(() => endIntro());
       ScrollTrigger.refresh();
     };
     if (v.readyState >= 1) onMeta();
@@ -95,6 +116,9 @@ export function ScrollHero() {
       st.kill();
       gsap.ticker.remove(raf);
       v.removeEventListener("seeked", onSeeked);
+      v.removeEventListener("ended", onEnded);
+      window.removeEventListener("wheel", onWheelOrTouch);
+      window.removeEventListener("touchmove", onWheelOrTouch);
       lenis.destroy();
     };
   }, []);
