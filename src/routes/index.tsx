@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Scroll to assemble VANTA 001: a 214 hp carbon and titanium superbike revealed component by component in a cinematic black studio.",
+          "A cinematic exploded-view reveal of VANTA 001 — matte carbon, brushed titanium, 214 hp.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
