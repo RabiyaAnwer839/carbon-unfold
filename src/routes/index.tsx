@@ -29,6 +29,7 @@ function Index() {
     <main className="bg-background">
       <h1 className="sr-only">VANTA 001 — futuristic carbon fiber superbike</h1>
       <ScrollHero />
+      <EngineeringShowcase />
       <section className="relative z-10 border-t border-border bg-background px-6 py-28 md:px-14">
         <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-3">
           {[
